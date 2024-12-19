@@ -36,9 +36,9 @@ const questions = [
     }
 ];
 
-
 let currentQuestion = 0;
 let score = 0;
+let userAnswers = [];
 
 const quiz = document.getElementById("quiz");
 const questionElement = document.getElementById("question");
@@ -46,6 +46,8 @@ const optionsElement = document.getElementById("options");
 const nextBtn = document.getElementById("nextBtn");
 const result = document.getElementById("result");
 const scoreElement = document.getElementById("score");
+const totalElement = document.getElementById("total");
+const summaryElement = document.getElementById("summary");
 
 function loadQuestion() {
     const current = questions[currentQuestion];
@@ -80,12 +82,31 @@ function showResult() {
     quiz.classList.add("hidden");
     result.classList.remove("hidden");
     scoreElement.textContent = score;
+    totalElement.textContent = questions.length;
+
+    summaryElement.innerHTML = "";
+    questions.forEach((q, index) => {
+        const userAnswer = userAnswers[index];
+        const correctAnswer = q.options[q.correct];
+        const isCorrect = userAnswer === q.correct;
+
+        const summaryItem = document.createElement("p");
+        summaryItem.innerHTML = `
+            <strong>Q${index + 1}: ${q.question}</strong><br>
+            Your Answer: <span style="color: ${isCorrect ? 'green' : 'red'}">${q.options[userAnswer]}</span>
+            ${!isCorrect ? `<br>Correct Answer: <span style="color: green">${correctAnswer}</span>` : ""}
+        `;
+        summaryElement.appendChild(summaryItem);
+    });
 }
+
 
 function nextQuestion() {
     const selectedOption = document.querySelector('input[name="option"]:checked');
     if (selectedOption) {
         const selectedIndex = parseInt(selectedOption.value);
+        userAnswers[currentQuestion] = selectedIndex;
+
         if (selectedIndex === questions[currentQuestion].correct) {
             score++;
         }
@@ -102,6 +123,7 @@ function nextQuestion() {
 function restartQuiz() {
     currentQuestion = 0;
     score = 0;
+    userAnswers = [];
     quiz.classList.remove("hidden");
     result.classList.add("hidden");
     loadQuestion();
