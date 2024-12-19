@@ -99,8 +99,90 @@ function showResult() {
         summaryElement.appendChild(summaryItem);
     });
 }
+function showResult() {
+    quiz.classList.add("hidden");
+    result.classList.remove("hidden");
+    scoreElement.textContent = score;
+    totalElement.textContent = questions.length;
 
+    summaryElement.innerHTML = "";
+    questions.forEach((q, index) => {
+        const userAnswer = userAnswers[index];
+        const correctAnswer = q.options[q.correct];
+        const isCorrect = userAnswer === q.correct;
 
+        const summaryItem = document.createElement("p");
+        summaryItem.innerHTML = `
+            <strong>Q${index + 1}: ${q.question}</strong><br>
+            Your Answer: <span style="color: ${isCorrect ? 'green' : 'red'}">${q.options[userAnswer]}</span>
+            ${!isCorrect ? `<br>Correct Answer: <span style="color: green">${correctAnswer}</span>` : ""}
+        `;
+        summaryElement.appendChild(summaryItem);
+    });
+}
+function showResult() {
+    quiz.classList.add("hidden");
+    result.classList.remove("hidden");
+    scoreElement.textContent = score;
+    totalElement.textContent = questions.length;
+
+    summaryElement.innerHTML = "";
+    questions.forEach((q, index) => {
+        const userAnswer = userAnswers[index];
+        const correctAnswer = q.options[q.correct];
+        const isCorrect = userAnswer === q.correct;
+
+        const summaryItem = document.createElement("p");
+        summaryItem.innerHTML = `
+            <strong>Q${index + 1}: ${q.question}</strong><br>
+            Your Answer: <span style="color: ${isCorrect ? 'green' : 'red'}">${q.options[userAnswer]}</span>
+            ${!isCorrect ? `<br>Correct Answer: <span style="color: green">${correctAnswer}</span>` : ""}
+        `;
+        summaryElement.appendChild(summaryItem);
+    });
+}
+function showResult() {
+    quiz.classList.add("hidden");
+    result.classList.remove("hidden");
+    scoreElement.textContent = score;
+    totalElement.textContent = questions.length;
+
+    summaryElement.innerHTML = "";
+    questions.forEach((q, index) => {
+        const userAnswer = userAnswers[index];
+        const correctAnswer = q.options[q.correct];
+        const isCorrect = userAnswer === q.correct;
+
+        const summaryItem = document.createElement("p");
+        summaryItem.innerHTML = `
+            <strong>Q${index + 1}: ${q.question}</strong><br>
+            Your Answer: <span style="color: ${isCorrect ? 'green' : 'red'}">${q.options[userAnswer]}</span>
+            ${!isCorrect ? `<br>Correct Answer: <span style="color: green">${correctAnswer}</span>` : ""}
+        `;
+        summaryElement.appendChild(summaryItem);
+    });
+}
+function showResult() {
+    quiz.classList.add("hidden");
+    result.classList.remove("hidden");
+    scoreElement.textContent = score;
+    totalElement.textContent = questions.length;
+
+    summaryElement.innerHTML = "";
+    questions.forEach((q, index) => {
+        const userAnswer = userAnswers[index];
+        const correctAnswer = q.options[q.correct];
+        const isCorrect = userAnswer === q.correct;
+
+        const summaryItem = document.createElement("p");
+        summaryItem.innerHTML = `
+            <strong>Q${index + 1}: ${q.question}</strong><br>
+            Your Answer: <span style="color: ${isCorrect ? 'green' : 'red'}">${q.options[userAnswer]}</span>
+            ${!isCorrect ? `<br>Correct Answer: <span style="color: green">${correctAnswer}</span>` : ""}
+        `;
+        summaryElement.appendChild(summaryItem);
+    });
+}
 function nextQuestion() {
     const selectedOption = document.querySelector('input[name="option"]:checked');
     if (selectedOption) {
