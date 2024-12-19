@@ -1,30 +1,41 @@
 const questions = [
     {
-        question: "What is the capital of France?",
-        options: ["Berlin", "Madrid", "Paris", "Rome"],
-        correct: 2
-    },
-    {
-        question: "Who wrote 'To Kill a Mockingbird'?",
-        options: ["Harper Lee", "Mark Twain", "George Orwell", "J.K. Rowling"],
+        question: "What does 'HTML' stand for?",
+        options: [
+            "HyperText Markup Language",
+            "HighText Machine Language",
+            "HyperText Machine Language",
+            "HighText Markup Language"
+        ],
         correct: 0
     },
     {
-        question: "What is the smallest planet in our solar system?",
-        options: ["Venus", "Earth", "Mercury", "Mars"],
-        correct: 2
-    },
-    {
-        question: "What is 5 + 7?",
-        options: ["12", "13", "14", "15"],
-        correct: 0
+        question: "Which programming language is primarily used for Android app development?",
+        options: ["Swift", "Java", "Python", "C#"],
+        correct: 1
     },
     {
         question: "Which programming language is known as the backbone of web development?",
         options: ["Python", "C++", "JavaScript", "Ruby"],
         correct: 2
     },
+    {
+        question: "Which protocol is used to send emails?",
+        options: ["HTTP", "SMTP", "FTP", "IMAP"],
+        correct: 1
+    },
+    {
+        question: "What is the purpose of version control systems like Git?",
+        options: [
+            "Writing code faster",
+            "Managing file permissions",
+            "Tracking changes in code",
+            "Compiling code"
+        ],
+        correct: 2
+    }
 ];
+
 
 let currentQuestion = 0;
 let score = 0;
